@@ -1,0 +1,43 @@
+{
+  "src_folders" : ["tests/specs"],
+  "page_objects_path" : "./tests/pages",
+
+  "test_runner" : {
+    "type" : "mocha",
+    "options" : {
+      "ui" : "bdd",
+      "reporter" : "list"
+    }
+  },
+
+  "test_settings" : {
+    "default" : {
+      "webdriver": {
+        "start_process": true,
+        "server_path": "node_modules/chromedriver/lib/chromedriver/chromedriver.exe",
+        "cli_args": [
+          "--verbose"
+        ],
+        "port": 9515
+      },
+      "desiredCapabilities" : {
+        "browserName" : "chrome"
+      }
+    },
+    "selenium_server" : {
+      "selenium" : {
+        "start_process": true,
+        "port": 4444,
+        "host": "localhost",
+        "server_path": "./selenium-server/selenium-server-standalone-3.9.1.jar",
+        "cli_args": {
+          "webdriver.gecko.driver": "./bin/geckodriver-0.23",
+          "webdriver.chrome.driver": "node_modules/chromedriver/lib/chromedriver/chromedriver.exe"
+        }
+      },
+      "desiredCapabilities" : {
+        "browserName" : "chrome"
+      }
+    }
+  }
+}
